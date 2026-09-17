@@ -25,18 +25,46 @@ class ErrorBoundary extends React.Component<
   render() {
     if (this.state.error) {
       return (
-        <div className="fatal-error">
-          <div className="fatal-card">
-            <div className="fatal-icon">⚠️</div>
+        <div
+          style={{
+            minHeight: "100vh",
+            background: "#050505",
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "24px",
+            fontFamily: "Arial, sans-serif"
+          }}
+        >
+          <div style={{ maxWidth: "500px" }}>
             <h1>TON Vault</h1>
-            <p>Application error</p>
 
-            <pre>
+            <p style={{ color: "#999" }}>
+              Application error
+            </p>
+
+            <pre
+              style={{
+                whiteSpace: "pre-wrap",
+                background: "#111",
+                padding: "15px",
+                borderRadius: "12px",
+                color: "#ff8888"
+              }}
+            >
               {this.state.error.message}
             </pre>
 
             <button
               onClick={() => window.location.reload()}
+              style={{
+                width: "100%",
+                padding: "14px",
+                border: 0,
+                borderRadius: "10px",
+                cursor: "pointer"
+              }}
             >
               Reload
             </button>
@@ -59,7 +87,7 @@ ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <ErrorBoundary>
       <TonConnectUIProvider
-        manifestUrl="/tonconnect-manifest.json"
+        manifestUrl="https://ton-vault.vercel.app/tonconnect-manifest.json"
       >
         <App />
       </TonConnectUIProvider>
