@@ -1,15 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-import {
-  TonConnectUIProvider
-} from "@tonconnect/ui-react";
-
 import App from "./App";
 import "./styles.css";
-import { initTelegram } from "./telegram";
 
-class ErrorBoundary extends React.Component<
+class BootErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { error: Error | null }
 > {
@@ -22,80 +16,30 @@ class ErrorBoundary extends React.Component<
     return { error };
   }
 
-  componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error("TON Vault runtime error:", error, info);
+  componentDidCatch(error: Error) {
+    console.error("TON VAULT BOOT ERROR:", error);
   }
 
   render() {
     if (this.state.error) {
       return (
-        <div
-          style={{
-            minHeight: "100vh",
-            background: "#050505",
-            color: "#fff",
-            padding: "32px 20px",
-            fontFamily:
-              "-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
-            boxSizing: "border-box"
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "680px",
-              margin: "0 auto"
-            }}
-          >
-            <div style={{ fontSize: "42px", marginBottom: "18px" }}>
-              ⚠️
-            </div>
-
-            <h1 style={{ marginBottom: "12px" }}>
-              TON Vault
-            </h1>
-
-            <p
-              style={{
-                color: "#aaa",
-                lineHeight: 1.6,
-                marginBottom: "24px"
-              }}
-            >
-              Приложение запустилось, но произошла ошибка JavaScript.
-            </p>
-
-            <div
-              style={{
-                background: "#111",
-                border: "1px solid #292929",
-                borderRadius: "14px",
-                padding: "16px",
-                overflowX: "auto",
-                fontSize: "13px",
-                lineHeight: 1.5,
-                color: "#ff8f8f"
-              }}
-            >
-              {this.state.error.message}
-            </div>
-
-            <button
-              onClick={() => window.location.reload()}
-              style={{
-                marginTop: "20px",
-                width: "100%",
-                padding: "14px",
-                borderRadius: "12px",
-                border: "none",
-                background: "#fff",
-                color: "#000",
-                fontWeight: 700,
-                fontSize: "16px"
-              }}
-            >
-              Перезагрузить
-            </button>
-          </div>
+        <div style={{
+          minHeight: "100vh",
+          background: "#050505",
+          color: "#fff",
+          padding: "30px",
+          fontFamily: "Arial, sans-serif"
+        }}>
+          <h1>TON Vault — ошибка</h1>
+          <pre style={{
+            whiteSpace: "pre-wrap",
+            color: "#ff7777",
+            background: "#111",
+            padding: "16px",
+            borderRadius: "12px"
+          }}>
+            {this.state.error.message}
+          </pre>
         </div>
       );
     }
@@ -104,27 +48,27 @@ class ErrorBoundary extends React.Component<
   }
 }
 
-try {
-  initTelegram();
-} catch (e) {
-  console.warn("Telegram init skipped:", e);
-}
+const root = document.getElementById("root");
 
-const rootElement = document.getElementById("root");
-
-if (!rootElement) {
-  throw new Error("Root element #root not found");
-}
-
-ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <TonConnectUIProvider
-        manifestUrl="/tonconnect-manifest.json"
-        enableAndroidBackHandler={true}
-      >
+if (!root) {
+  document.body.innerHTML = `
+    <div style="
+      background:#050505;
+      color:white;
+      min-height:100vh;
+      padding:30px;
+      font-family:Arial
+    ">
+      <h1>TON Vault</h1>
+      <p>Ошибка: #root не найден.</p>
+    </div>
+  `;
+} else {
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+      <BootErrorBoundary>
         <App />
-      </TonConnectUIProvider>
-    </ErrorBoundary>
-  </React.StrictMode>
-);
+      </BootErrorBoundary>
+    </React.StrictMode>
+  );
+}
