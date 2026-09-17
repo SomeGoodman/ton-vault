@@ -1,7 +1,5 @@
 {
-  "url": "https://oven-trustee-harley-film.trycloudflare.com",
+  "url": "https://ton-vault.vercel.app",
   "name": "TON Vault",
-  "iconUrl": "https://oven-trustee-harley-film.trycloudflare.com/icon.svg",
-  "termsOfUseUrl": "https://oven-trustee-harley-film.trycloudflare.com/terms.html",
-  "privacyPolicyUrl": "https://oven-trustee-harley-film.trycloudflare.com/privacy.html"
+  "iconUrl": "https://ton-vault.vercel.app/icon.svg"
 }
