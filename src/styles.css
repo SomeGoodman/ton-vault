@@ -1,9 +1,398 @@
-html, body, #root {
+:root {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #ffffff;
+  background: #050505;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
 }
+
 body {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      #1a1a1a 0,
+      #090909 35%,
+      #050505 70%
+    );
+}
+
+button {
+  font: inherit;
+}
+
+.vault {
+  min-height: 100vh;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px 18px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.brand-name {
+  font-weight: 750;
+  font-size: 17px;
+}
+
+.brand-subtitle {
+  margin-top: 2px;
+  color: #777;
+  font-size: 12px;
+}
+
+.content {
+  flex: 1;
+  padding-top: 55px;
+}
+
+.welcome {
+  text-align: center;
+  padding: 30px 5px;
+}
+
+.hero-orb {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #ffffff,
+      #999 35%,
+      #333 70%,
+      #111
+    );
+
+  box-shadow:
+    0 0 80px rgba(255,255,255,.08);
+}
+
+.hero-symbol {
+  font-size: 42px;
+  font-weight: 900;
+  color: #050505;
+}
+
+.welcome h1 {
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: -1.5px;
+}
+
+.welcome p {
+  max-width: 430px;
+  margin: 16px auto 30px;
+  color: #858585;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.connect-large {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.security-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 12px;
+}
+
+.balance-card {
+  padding: 27px;
+  border: 1px solid #222;
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.075),
+      rgba(255,255,255,.025)
+    );
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.35);
+}
+
+.balance-label {
+  color: #777;
+  font-size: 13px;
+}
+
+.balance-value {
+  margin-top: 9px;
+  font-size: 39px;
+  font-weight: 750;
+  letter-spacing: -1.5px;
+}
+
+.address-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 17px;
+  color: #777;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.icon-button {
+  border: 0;
+  background: transparent;
+  color: #aaa;
+  cursor: pointer;
+  padding: 3px 6px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.action-card {
+  border: 1px solid #222;
+  border-radius: 18px;
+  background: #0d0d0d;
+  color: white;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.action-card:active {
+  transform: scale(.98);
+}
+
+.action-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #1b1b1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.action-card strong {
+  display: block;
+  font-size: 15px;
+}
+
+.action-card span {
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  font-size: 12px;
+}
+
+.wallet-section {
+  margin-top: 28px;
+}
+
+.section-title {
+  margin-bottom: 10px;
+  color: #777;
+  font-size: 13px;
+}
+
+.wallet-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #1d1d1d;
+  border-radius: 17px;
+  background: #0b0b0b;
+}
+
+.wallet-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.wallet-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.wallet-info strong {
+  display: block;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.wallet-info span {
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  font-size: 11px;
+}
+
+.disconnect {
+  border: 1px solid #292929;
+  border-radius: 10px;
+  padding: 9px 11px;
+  background: transparent;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.error-box {
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 13px;
+  background: #180d0d;
+  border: 1px solid #3b1d1d;
+  color: #d88888;
+  font-size: 13px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 35px;
+  color: #454545;
+  font-size: 11px;
+}
+
+.fatal-error {
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #050505;
+  color: white;
+}
+
+.fatal-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  border-radius: 20px;
+  background: #101010;
+  border: 1px solid #292929;
+}
+
+.fatal-icon {
+  font-size: 34px;
+}
+
+.fatal-card p {
+  color: #888;
+}
+
+.fatal-card pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 14px;
+  border-radius: 12px;
+  background: #080808;
+  color: #ff8585;
+  font-size: 12px;
+}
+
+.fatal-card button {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 11px;
+  background: white;
+  color: black;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .vault {
+    padding: 14px 14px 24px;
+  }
+
+  .content {
+    padding-top: 38px;
+  }
+
+  .welcome h1 {
+    font-size: 31px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .balance-value {
+    font-size: 32px;
+  }
+
+  .disconnect {
+    font-size: 10px;
+  }
 }
